@@ -6,8 +6,15 @@ const apiGet='https://api.thecatapi.com/v1/breeds';
 
 // Make a request for a user with a given ID
 const fetchBreeds = () => {
-return axios.get(apiGet)
+    return axios
+        .get(apiGet)
+        .then(response => response.data)
+        .catch (error => {throw error;});
 };
-export default fetchBreeds
-
-// Select.bread-select wyjaśnić + umieścić w kodzie. Zamiast value ma być id rasy
+export const fetchCatByBreed = (breedId) => {
+  return axios.get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
+    .then(response => response.data)
+    .catch(error => {
+      throw error;
+    });
+}

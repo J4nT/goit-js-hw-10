@@ -1,0 +1,158 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e8e8e8;
+    width: 70%;
+    height: 95vh;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.5);
+}
+
+.cat-data {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border-radius: 5%;
+    padding: 25px;
+    margin-top: 50px;
+    background-color: rgb(251, 251, 251, 0.5);
+    box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 400px;
+    float: left;
+    perspective: 500px;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .content {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.cat-photo {
+    border-radius: 5%;
+    border: 3px solid;
+    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    height: 400px;
+    width: auto;
+}
+
+.front,
+.back {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.back-paragraphs {
+    position: absolute;
+    width: 500px;
+    top: -70%;
+    left: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.selector-div {
+    width: 500px;
+}
+
+.breed-select {
+    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.4);
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after,
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #FF3D00;
+    width: 6px;
+    height: 6px;
+    transform: translate(150%, 150%);
+    border-radius: 50%;
+}
+
+.loader::before {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    transform: translate(-150%, -150%);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
